@@ -1,4 +1,6 @@
-# Module d'insertion en base de données des résultats olympiques du système OGROD
+# OGROD - Olympic Games results Open Database
+
+## Module d'insertion en base de données
 
 ![Texte alternatif](logo.png "Le titre de mon image")
 
