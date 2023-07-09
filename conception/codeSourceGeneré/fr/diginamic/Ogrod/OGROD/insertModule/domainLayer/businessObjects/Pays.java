@@ -34,7 +34,7 @@ public class Pays {
 
     // ----------- << attribute.annotations@AAAAAAGJL4/gp0cfXlA= >>
     // ----------- >>
-    private Set<Equipe> est associé = new HashSet<>();
+    private Equipe est associé;
 
     private int getNumPays() {
         return numPays;
@@ -52,7 +52,7 @@ public class Pays {
         return est_compose;
     }
 
-    public Set<Equipe> getEst associé() {
+    public Equipe getEst associé() {
         return est associé;
     }
 
@@ -68,6 +68,10 @@ public class Pays {
         this.noc = noc;
     }
 
+    public void setEst associé(Equipe est associé) {
+        this.est associé = est associé;
+    }
+
     public void linkEst_compose(Ville _est_compose) {
         if (_est_compose != null) {
             _est_compose.unlinkEst_situee();
@@ -80,8 +84,10 @@ public class Pays {
         if (_est associé != null) {
             _est associé.unlinkAppartient();
             _est associé.setAppartient(this);
-            getEst associé().add(_est associé);
         }
+
+        unlinkEst associé();
+        setEst associé(_est associé);
     }
 
     public void unlinkEst_compose(Ville _est_compose) {
@@ -98,17 +104,10 @@ public class Pays {
         }
     }
 
-    public void unlinkEst associé(Equipe _est associé) {
-        if (_est associé != null) {
-            _est associé.setAppartient(null);
-            getEst associé().remove(_est associé);
-        }
-    }
-
-    public void unlinkEst associé(Equipe _est associé, Iterator<Equipe> it) {
-        if (_est associé != null) {
-            _est associé.setAppartient(null);
-            it.remove();
+    public void unlinkEst associé() {
+        if (getEst associé() != null) {
+            getEst associé().setAppartient(null);
+            setEst associé(null);
         }
     }
 

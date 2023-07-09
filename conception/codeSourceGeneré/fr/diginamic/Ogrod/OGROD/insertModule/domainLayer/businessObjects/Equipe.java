@@ -77,7 +77,8 @@ public class Equipe {
 
     public void linkAppartient(Pays _appartient) {
         if (_appartient != null) {
-            _appartient.getEst associé().add(this);
+            _appartient.unlinkEst associé();
+            _appartient.setEst associé(this);
         }
 
         unlinkAppartient();
@@ -107,7 +108,7 @@ public class Equipe {
 
     public void unlinkAppartient() {
         if (getAppartient() != null) {
-            getAppartient().getEst associé().remove(this);
+            getAppartient().setEst associé(null);
             setAppartient(null);
         }
     }

@@ -1,5 +1,5 @@
 
-# Module d'insertion du système OGROD en base de données des résultats olympiques
+# Module d'insertion en base de données des résultats olympiques du système OGROD 
 
 ## Cahier des charges
 
